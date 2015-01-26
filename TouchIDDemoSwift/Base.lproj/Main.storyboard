@@ -17,28 +17,62 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Notes" id="NV9-NY-Ozk"/>
+                    <navigationItem key="navigationItem" title="My Notes" id="NV9-NY-Ozk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kGo-a7-4lt">
+                            <connections>
+                                <segue destination="mcA-ZS-8cL" kind="show" id="0Fd-su-3dp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1117" y="429"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Note View Controller-->
         <scene sceneID="br8-uc-Hq2">
             <objects>
-                <viewController id="mcA-ZS-8cL" sceneMemberID="viewController">
+                <viewController id="mcA-ZS-8cL" customClass="EditNoteViewController" customModule="TouchIDDemoSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="P6s-5Q-lAx"/>
                         <viewControllerLayoutGuide type="bottom" id="j0w-sU-Axx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aCi-Qf-JgT">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0Mu-3R-k73">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="z3Y-Je-nGz">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z3Y-Je-nGz" id="BLg-vd-H8P">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="800"/>
+                                </variation>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="0Mu-3R-k73"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="0Mu-3R-k73"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k9c-E3-nzU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1771.5" y="427.5"/>
+            <point key="canvasLocation" x="1903.5" y="429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X4c-Pk-iaw">
