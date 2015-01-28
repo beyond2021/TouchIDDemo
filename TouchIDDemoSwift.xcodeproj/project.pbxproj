@@ -13,7 +13,7 @@
 		2205D5031A76D0DC00201F5D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2205D5021A76D0DC00201F5D /* Images.xcassets */; };
 		2205D5061A76D0DC00201F5D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2205D5041A76D0DC00201F5D /* LaunchScreen.xib */; };
 		2205D5121A76D0DC00201F5D /* TouchIDDemoSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205D5111A76D0DC00201F5D /* TouchIDDemoSwiftTests.swift */; };
-		2205D51C1A76D2CE00201F5D /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205D51B1A76D2CE00201F5D /* EditNoteViewController.swift */; };
+		22CD06AB1A7877DD00C47172 /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD06AA1A7877DD00C47172 /* EditNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		2205D50B1A76D0DC00201F5D /* TouchIDDemoSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TouchIDDemoSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2205D5101A76D0DC00201F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2205D5111A76D0DC00201F5D /* TouchIDDemoSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDDemoSwiftTests.swift; sourceTree = "<group>"; };
-		2205D51B1A76D2CE00201F5D /* EditNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
+		22CD06AA1A7877DD00C47172 /* EditNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +82,10 @@
 				2205D4FB1A76D0DC00201F5D /* AppDelegate.swift */,
 				2205D4FD1A76D0DC00201F5D /* ViewController.swift */,
 				2205D4FF1A76D0DC00201F5D /* Main.storyboard */,
-				2205D51B1A76D2CE00201F5D /* EditNoteViewController.swift */,
 				2205D5021A76D0DC00201F5D /* Images.xcassets */,
 				2205D5041A76D0DC00201F5D /* LaunchScreen.xib */,
 				2205D4F91A76D0DC00201F5D /* Supporting Files */,
+				22CD06AA1A7877DD00C47172 /* EditNoteViewController.swift */,
 			);
 			path = TouchIDDemoSwift;
 			sourceTree = "<group>";
@@ -216,7 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2205D4FE1A76D0DC00201F5D /* ViewController.swift in Sources */,
-				2205D51C1A76D2CE00201F5D /* EditNoteViewController.swift in Sources */,
+				22CD06AB1A7877DD00C47172 /* EditNoteViewController.swift in Sources */,
 				2205D4FC1A76D0DC00201F5D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +409,7 @@
 				2205D5171A76D0DC00201F5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2205D5181A76D0DC00201F5D /* Build configuration list for PBXNativeTarget "TouchIDDemoSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +418,7 @@
 				2205D51A1A76D0DC00201F5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
