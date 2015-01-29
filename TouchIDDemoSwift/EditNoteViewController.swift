@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditNoteViewController: UIViewController {
+class EditNoteViewController: UIViewController, UITextFieldDelegate {
     
     
     
@@ -23,6 +23,7 @@ class EditNoteViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Edit Note"
+        txtNoteTitle.delegate = self
         self.txtNoteTitle.becomeFirstResponder() //It would be really nice if the keyboard would appear once this view controller is pushed to the navigation stack. That way, it would be much easier for our (hypothetic) users to start writing their notes.
         
     }
@@ -31,16 +32,18 @@ class EditNoteViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+   
+    // MARK: - Textfield delegate methods
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        //make the textview the first responder when the return key of the textfield keyboard gets tapped.
+        
+        // Resign the textfield from first responder.
+        textField.resignFirstResponder()
+        
+        // Make the textview the first responder.
+        tvNoteBody.becomeFirstResponder()
+        
+        return true
     }
-    */
-
 }
