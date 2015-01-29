@@ -40,7 +40,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+   
+    
+    // MARK: - Saving to the documents Directory
+    
+    //Because we need to do almost the same thing in two different classes, we’ll implement the two methods in the AppDelegate class and then by instantiating an application delegate object, we’ll access them directly. The first method is going to return the full path of the notes file.
+    
+    
+    //I named the note file “notesData”, but it actually doesn’t matter how you’ll name it. In the above implementation, it’s demonstrated how we can access the documents directory in Swift. That’s useful, and you can keep it as a small reusable piece of code for future use in your applications. Besides that, this is the first time that we write a method that returns a value, and in this case as string value. When this method will be called, the full path to the notes data file will be returned, so we won’t have to manually compose it again.
+    
+    func getPathOfDataFile() -> String {
+        let pathsArray = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        let documentsPath = pathsArray[0] as String
+        let dataFilePath = documentsPath.stringByAppendingPathComponent("notesData")
+        
+        return dataFilePath
+    }
+    
+    // Below checks if the file actually exists or not to the documents directory.  Here we use the NSFileManager class to determine whether the file exists or not, and it works just like it does in Objective-C. If the file is found, then we return true, otherwise the false value is returned.    
+    
+    func checkIfDataFileExists() -> Bool {
+        if NSFileManager.defaultManager().fileExistsAtPath(getPathOfDataFile()) {
+            return true
+        }
+        
+        return false
+    }
+    
+    
 
 }
 

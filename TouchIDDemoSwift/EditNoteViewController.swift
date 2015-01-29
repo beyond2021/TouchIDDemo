@@ -10,15 +10,21 @@ import UIKit
 
 class EditNoteViewController: UIViewController {
     
+    
+    
+    
     @IBOutlet weak var txtNoteTitle: UITextField!
     
     @IBOutlet weak var tvNoteBody: UITextView!
-
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate //declaring and instantiating at the same time an application delegate constant.
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "Edit Note"
+        self.txtNoteTitle.becomeFirstResponder() //It would be really nice if the keyboard would appear once this view controller is pushed to the navigation stack. That way, it would be much easier for our (hypothetic) users to start writing their notes.
+        
     }
 
     override func didReceiveMemoryWarning() {

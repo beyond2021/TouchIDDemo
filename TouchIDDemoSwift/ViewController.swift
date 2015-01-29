@@ -128,6 +128,14 @@ class ViewController: UIViewController, UIAlertViewDelegate {
             }
         }
     }
+   
+    
+    // MARK: - Saving to the documents Directory
+    
+    /*
+     the note data is going to be stored to the disk, in the documents directory of the app specifically. Programmatically speaking, that means that we must develop the necessary methods to get the path of the notes file to the documents directory, and to check if that file exists.
+    These two functionalities are needed in two places: In the ViewController, this class for checking if the file exists and for loading the data, and in the EditNoteViewController class, for loading any existing data and appending the new one, and of course for saving the edited note. Because we need to do almost the same thing in two different classes, we’ll implement the two methods in the AppDelegate class and then by instantiating an application delegate object, we’ll access them directly. The first method is going to return the full path of the notes file
+    */
     
     
 
