@@ -5,11 +5,24 @@
 //  Created by KEEVIN MITCHELL on 1/27/15.
 //  Copyright (c) 2015 Beyond 2021. All rights reserved.
 //
+/*
+There are now two important tasks we need to perform: The first one, is to update the saveNote IBAction method, so when a note is saved the noteWasSaved delegate method to be called. The second is to implement this method in the ViewController class, so every time it receives a message to load the data and update the tableview.
+*/
+
+
 
 import UIKit
 
+// This is to tell any class whats happening in here.
+protocol EditNoteViewControllerDelegate{
+    func noteWasSaved()
+    //In here, we’ll declare just one method that will be called every time a note gets saved:
+}
+
 class EditNoteViewController: UIViewController, UITextFieldDelegate {
     
+    
+    var delegate : EditNoteViewControllerDelegate? // Next, we must declare a delegate property (variable). Note the question mark at the end of the above command. The delegate property must be an optional value, because it’s possible no object to be assigned to it (if, for example, we don’t set any delegate class), so it will remain nil.
     
     @IBOutlet weak var saveNote: UIBarButtonItem!
     
@@ -60,7 +73,12 @@ class EditNoteViewController: UIViewController, UITextFieldDelegate {
             
             // Save the array contents to file.
             dataArray.writeToFile(appDelegate.getPathOfDataFile(), atomically: true)
-            
+        
+        
+        // Notify the delegate class that the note has been saved. Protocol Method
+        delegate?.noteWasSaved()
+        
+        
             // Pop the view controller
             self.navigationController!.popViewControllerAnimated(true)
             

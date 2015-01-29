@@ -10,7 +10,7 @@ import UIKit
 import LocalAuthentication
 import iAd
 
-class ViewController: UIViewController, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UIAlertViewDelegate, UITableViewDelegate, UITableViewDataSource, EditNoteViewControllerDelegate {
     
     @IBOutlet weak var tblNotes: UITableView!
     
@@ -230,11 +230,29 @@ class ViewController: UIViewController, UIAlertViewDelegate, UITableViewDelegate
     }
     
     
+    func noteWasSaved() {
+        // Load the data and reload the table view. a note was saved in edit note
+        loadData()
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        //There’s one final thing we must do, otherwise nothing is going to work. That is to make the ViewController (This Class) class the delegate of the EditNoteViewController. We’ll do that in the prepareForSegue (This) method, as that’s the proper place to do such things when working with segues.
+        
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "idSegueEditNote"{
+            var editNoteViewController : EditNoteViewController = segue.destinationViewController as EditNoteViewController
+            
+            editNoteViewController.delegate = self
+        }
     
     
     
 }
 
-
+}
 
 
