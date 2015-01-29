@@ -14,6 +14,8 @@
 		2205D5061A76D0DC00201F5D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2205D5041A76D0DC00201F5D /* LaunchScreen.xib */; };
 		2205D5121A76D0DC00201F5D /* TouchIDDemoSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205D5111A76D0DC00201F5D /* TouchIDDemoSwiftTests.swift */; };
 		22CD06AB1A7877DD00C47172 /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CD06AA1A7877DD00C47172 /* EditNoteViewController.swift */; };
+		22CD06AD1A787F3F00C47172 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CD06AC1A787F3F00C47172 /* LocalAuthentication.framework */; };
+		22CD06AF1A78801600C47172 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CD06AE1A78801600C47172 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		2205D5101A76D0DC00201F5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2205D5111A76D0DC00201F5D /* TouchIDDemoSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIDDemoSwiftTests.swift; sourceTree = "<group>"; };
 		22CD06AA1A7877DD00C47172 /* EditNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
+		22CD06AC1A787F3F00C47172 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		22CD06AE1A78801600C47172 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22CD06AF1A78801600C47172 /* iAd.framework in Frameworks */,
+				22CD06AD1A787F3F00C47172 /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				2205D4F81A76D0DC00201F5D /* TouchIDDemoSwift */,
+				22CD06B01A78802500C47172 /* Frameworks */,
 				2205D50E1A76D0DC00201F5D /* TouchIDDemoSwiftTests */,
 				2205D4F71A76D0DC00201F5D /* Products */,
 			);
@@ -79,13 +86,11 @@
 		2205D4F81A76D0DC00201F5D /* TouchIDDemoSwift */ = {
 			isa = PBXGroup;
 			children = (
-				2205D4FB1A76D0DC00201F5D /* AppDelegate.swift */,
-				2205D4FD1A76D0DC00201F5D /* ViewController.swift */,
-				2205D4FF1A76D0DC00201F5D /* Main.storyboard */,
+				22CD06B21A78806100C47172 /* Application Delegate */,
+				22CD06B11A78804300C47172 /* Views */,
+				22CD06B31A78807C00C47172 /* XIBs */,
 				2205D5021A76D0DC00201F5D /* Images.xcassets */,
-				2205D5041A76D0DC00201F5D /* LaunchScreen.xib */,
 				2205D4F91A76D0DC00201F5D /* Supporting Files */,
-				22CD06AA1A7877DD00C47172 /* EditNoteViewController.swift */,
 			);
 			path = TouchIDDemoSwift;
 			sourceTree = "<group>";
@@ -113,6 +118,41 @@
 				2205D5101A76D0DC00201F5D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		22CD06B01A78802500C47172 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22CD06AE1A78801600C47172 /* iAd.framework */,
+				22CD06AC1A787F3F00C47172 /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		22CD06B11A78804300C47172 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2205D4FD1A76D0DC00201F5D /* ViewController.swift */,
+				22CD06AA1A7877DD00C47172 /* EditNoteViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		22CD06B21A78806100C47172 /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				2205D4FB1A76D0DC00201F5D /* AppDelegate.swift */,
+			);
+			name = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		22CD06B31A78807C00C47172 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				2205D5041A76D0DC00201F5D /* LaunchScreen.xib */,
+				2205D4FF1A76D0DC00201F5D /* Main.storyboard */,
+			);
+			name = XIBs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
