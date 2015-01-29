@@ -174,10 +174,15 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="h66-Fh-fOi">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="oaD-0h-oUg"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="oaD-0h-oUg">
+                            <connections>
+                                <action selector="saveNote:" destination="mcA-ZS-8cL" id="Dst-AZ-44x"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="saveNote" destination="oaD-0h-oUg" id="0Bp-Sh-STi"/>
                         <outlet property="tvNoteBody" destination="xIc-KO-wey" id="jb5-31-3we"/>
                         <outlet property="txtNoteTitle" destination="u4g-fs-mx8" id="A9d-sO-Wfr"/>
                     </connections>
