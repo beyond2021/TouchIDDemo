@@ -83,8 +83,27 @@ class ViewController: UIViewController, UIAlertViewDelegate {
                 
             })]
             
+        }else{
+            // If the security policy cannot be evaluated then show a short message depending on the error.
+            switch error!.code{
+                
+            case LAError.TouchIDNotEnrolled.rawValue:
+                println("TouchID is not enrolled")
+                
+            case LAError.PasscodeNotSet.rawValue:
+                println("A passcode has not been set")
+                
+            default:
+                // The LAError.TouchIDNotAvailable case.
+                println("TouchID not available")
+            }
+            
+            // Optionally the error description can be displayed on the console.
+            println(error?.localizedDescription)
+            
+            // Show the custom alert view to allow users to enter the password.
+            self.showPasswordAlert()
         }
-        
     }
     
     
@@ -94,6 +113,21 @@ class ViewController: UIViewController, UIAlertViewDelegate {
         passwordAlert.show()
     }
     
+    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int) {
+        if buttonIndex == 1 {
+            if !alertView.textFieldAtIndex(0)!.text.isEmpty {
+                if alertView.textFieldAtIndex(0)!.text == "appcoda" {
+                    
+                }
+                else{
+                    showPasswordAlert()
+                }
+            }
+            else{
+                showPasswordAlert()
+            }
+        }
+    }
     
     
 
