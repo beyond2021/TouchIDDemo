@@ -76,6 +76,7 @@ class EditNoteViewController: UIViewController, UITextFieldDelegate {
                 
                 
                 // Check if is editing a note or not.
+                // If the indexOfEditedNote property is nil, then we just add the dictionary with the note details to the dataArray array. However, if that property has a value, then we replace the existing dictionary to the array with the new one in the index specified by the property.
                 if indexOfEditedNote == nil {
                     // Add the dictionary to the array.
                     dataArray.addObject(noteDict)
@@ -163,4 +164,5 @@ class EditNoteViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
-}
+    
+    }

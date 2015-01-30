@@ -289,6 +289,29 @@ class ViewController: UIViewController, UIAlertViewDelegate, UITableViewDelegate
         performSegueWithIdentifier("idSegueEditNote", sender: self)
         
     }
+    
+    // MARK: - Deleting Notes-
+    
+    /*
+    Using an if statement, we’ll determine if the user slides the finger on a cell towards left in order to reveal the Delete button. If that’s the case, then we’ll remove the proper dictionary from the data source array (the dataArray), and we’ll store the array’s contents back to file so they remain updated, and finally we’ll refresh the tableview using an animated way
+    */
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.Delete{
+            // Delete the respective object from the dataArray array.
+            dataArray.removeObjectAtIndex(indexPath.row)
+            
+            // Save the array to disk.
+            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            dataArray.writeToFile(appDelegate.getPathOfDataFile(), atomically: true)
+            
+            // Reload the tableview.
+            tblNotes.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+
+    
 
 }
 
