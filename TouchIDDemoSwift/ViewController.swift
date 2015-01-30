@@ -21,6 +21,10 @@ class ViewController: UIViewController, UIAlertViewDelegate, UITableViewDelegate
     //Note that the array has been declared as an optional, because if no data file exists, the array will remain nil.
     
     
+    
+    var noteIndexToEdit: Int!// property to hoild index of note to be edited
+    
+    
     func loadData(){
         if appDelegate.checkIfDataFileExists() {
             
@@ -247,11 +251,44 @@ class ViewController: UIViewController, UIAlertViewDelegate, UITableViewDelegate
             var editNoteViewController : EditNoteViewController = segue.destinationViewController as EditNoteViewController
             
             editNoteViewController.delegate = self
+            ////Even though there’s no other segue and the if statement above could be omitted, I intentionally added it as I wanted to show how to check for the proper segue in Swift. Anyway, using the destinationViewController property of the segue, we get an instance of the EditNoteViewController and then we set our class as its delegate.
+            
+            
+            
+            if (noteIndexToEdit != nil) {
+                editNoteViewController.indexOfEditedNote = noteIndexToEdit
+                
+                noteIndexToEdit = nil
+                //An important observation now. Notice that after we have assigned the index of the note that’s about to be edited to the indexOfEditedNote property, we make the noteIndexToEdit nil. That’s necessary to be done if we want to be able to create new notes later. If we wouldn’t do so, then after having edited a note, the noteIndexToEdit property would still have a value, and upon the creation of a new note the EditNoteViewController view controller would “think” that we want to edit an existing one. Of course, that would cause a big problem later.                
+                
+                
+            }
+            
+            
         }
     
     
     
 }
+    
+    // MARK: - Editing Notes
+    
+    /*
+    In this part we’ll focus on how we’ll edit a note. The logic that we’ll follow is quite simple: Once the user taps on a tableview cell to edit a note, the index of the tapped row matching to the note that should be edited will be sent to the EditNoteViewController view controller. This view controller will load the notes from the disk, and it will display the details of the note that matches to the received index. However, we shouldn’t forget to update the saveNote method, so it won’t save an edited note as a new one.
+    
+    When a cell is tapped, we want to keep its row index and then display the EditNoteViewController view controller by performing the appropriate segue. We must declare a new property for storing the row index, so go at the top of the class where all property declarations exist, and add the next one:
+*/
+    
+    
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        noteIndexToEdit = indexPath.row
+        
+        performSegueWithIdentifier("idSegueEditNote", sender: self)
+        
+    }
 
 }
 
